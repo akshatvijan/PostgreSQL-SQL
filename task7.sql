@@ -24,7 +24,7 @@ prod.product_type,
 risk.route_risk_score,
 risk.political_risk_index,
 risk.port_congestion_index,
-risk.delay_probability,
+risk.delay_probability,        
 risk.current_delay_days,
 i.inventory_days
 from shipments ship 
