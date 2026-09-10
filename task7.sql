@@ -44,20 +44,57 @@ and current_delay_days>=5
 and inventory_days<=7;
 
 
--- avg_delay
-select * from vw_supplier_performance where avg_delay>5
 
---route_risk_score
-select * from vw_shipment_risk where route_risk_score>7
 
---political_risk_index
-select * from vw_shipment_risk where political_risk_index>7;
+--Highest Route Risk
+select 
+shipment_id,
+supplier_id,
+country,product_type,
+route_risk_score
+from vw_shipment_risk
+order by route_risk_score desc;
 
---total_revenue_impact
-select * from vw_supplier_performance where total_revenue_impact>1000000;
+--Highest Political Risk
+select 
+shipment_id,
+supplier_id,
+country,
+product_type,
+political_risk_index
+from vw_shipment_risk
+order by political_risk_index desc;
 
---inventory_days
-select * from vw_shipment_risk where inventory_days<7;
+--Highest Port Congestion
+select 
+shipment_id,
+supplier_id,
+country,
+product_type,
+port_congestion_index
+from vw_shipment_risk
+order by port_congestion_index desc;
+
+--Highest Delay Probability
+select 
+shipment_id,
+supplier_id,
+country,
+product_type,
+delay_probability
+from vw_shipment_risk
+order by delay_probability desc;
+
+--Highest Current Delay with Lowest Inventory
+select 
+shipment_id,
+supplier_id,
+country,
+product_type,
+current_delay_days,
+inventory_days
+from vw_shipment_risk
+order by current_delay_days desc,inventory_days asc;
 
 
 
