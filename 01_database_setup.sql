@@ -1,0 +1,92 @@
+-- CREATE SCHEMA supply_chain;
+-- SET search_path TO supply_chain, public;
+
+
+-- create table shipment_raw (
+--     shipment_id VARCHAR(20),
+--     supplier_id VARCHAR(20),
+--     country VARCHAR(50),
+--     product_type VARCHAR(50),
+--     monthly_demand_tons INT,
+--     shipment_volume_tons INT,
+--     route_risk_score DECIMAL(5,2),
+--     historical_delay_days INT,
+--     fuel_price_usd DECIMAL(10,2),
+--     political_risk_index DECIMAL(5,2),
+--     port_congestion_index DECIMAL(5,2),
+--     inventory_days INT,
+--     supplier_reliability DECIMAL(4,2),
+--     alternative_supplier_count INT,
+--     transit_time_days INT,
+--     delay_probability DECIMAL(4,2),
+--     current_delay_days INT,
+--     freight_cost_usd DECIMAL(12,2),
+--     revenue_impact_usd DECIMAL(12,2),
+--     disruption_event INT
+-- );
+
+-- select count(*) as Total_Records from shipment_raw
+--select count(*) from information_schema.columns where table_schema='supply_chain' and table_name='shipment_raw'
+
+-- select
+-- count(*) filter(where shipment_id is null) as shipment_id_null,
+-- count(*) filter(where supplier_id is null) as supplier_id_null,
+-- count(*) filter(where country is null) as country_null,
+-- count(*) filter(where product_type is null) as product_type_null,
+-- count(*) filter(where monthly_demand_tons is null) as monthly_demand_tons_null,
+-- count(*) filter(where shipment_volume_tons is null) as shipment_volume_tons_null,
+-- count(*) filter(where route_risk_score is null) as route_risk_score_null,
+-- count(*) filter(where historical_delay_days is null) as historical_delay_days_null,
+-- count(*) filter(where fuel_price_usd is null) as fuel_price_usd_null,
+-- count(*) filter(where political_risk_index is null) as political_risk_index_null,
+-- count(*) filter(where port_congestion_index is null) as port_congestion_index_null,
+-- count(*) filter(where inventory_days is null) as inventory_days_null,
+-- count(*) filter(where supplier_reliability is null) as supplier_reliability_null,
+-- count(*) filter(where alternative_supplier_count is null) as alternative_supplier_count_null,
+-- count(*) filter(where transit_time_days is null) as transit_time_days_null,
+-- count(*) filter(where delay_probability is null) as delay_probability_null,
+-- count(*) filter(where current_delay_days is null) as current_delay_days_null,
+-- count(*) filter(where freight_cost_usd is null) as freight_cost_usd_null,
+-- count(*) filter(where revenue_impact_usd is null) as revenue_impact_usd_null,
+-- count(*) filter(where disruption_event is null) as disruption_event_null
+-- from shipment_raw;
+
+-- select shipment_id,count() from shipment_raw group by shipment_id having count()>1;
+-- select supplier_id,count() from shipment_raw group by supplier_id having count()>1;
+
+
+-- select
+-- count(*) filter(where monthly_demand_tons<=0) as invalid_monthly_demand_tons,
+-- count(*) filter(where shipment_volume_tons<=0) as invalid_shipment_volume_tons,
+-- count(*) filter(where route_risk_score<0 or route_risk_score>100) as invalid_route_risk_score,
+-- count(*) filter(where historical_delay_days<0) as invalid_historical_delay_days,
+-- count(*) filter(where fuel_price_usd<0) as invalid_fuel_price_usd,
+-- count(*) filter(where political_risk_index<0 or political_risk_index>100) as invalid_political_risk_index,
+-- count(*) filter(where port_congestion_index<0 or port_congestion_index>100) as invalid_port_congestion_index,
+-- count(*) filter(where inventory_days<0) as invalid_inventory_days,
+-- count(*) filter(where supplier_reliability<0 or supplier_reliability>1) as invalid_supplier_reliability,
+-- count(*) filter(where alternative_supplier_count<0) as invalid_alternative_supplier_count,
+-- count(*) filter(where transit_time_days<0) as invalid_transit_time_days,
+-- count(*) filter(where delay_probability<0 or delay_probability>1) as invalid_delay_probability,
+-- count(*) filter(where current_delay_days<0) as invalid_current_delay_days,
+-- count(*) filter(where freight_cost_usd<0) as invalid_freight_cost_usd,
+-- count(*) filter(where revenue_impact_usd<0) as invalid_revenue_impact_usd
+-- from shipment_raw;
+
+-- select
+-- count(*) filter(where monthly_demand_tons<0) as negative_monthly_demand_tons,
+-- count(*) filter(where shipment_volume_tons<0) as negative_shipment_volume_tons,
+-- count(*) filter(where route_risk_score<0) as negative_route_risk_score,
+-- count(*) filter(where historical_delay_days<0) as negative_historical_delay_days,
+-- count(*) filter(where fuel_price_usd<0) as negative_fuel_price_usd,
+-- count(*) filter(where political_risk_index<0) as negative_political_risk_index,
+-- count(*) filter(where port_congestion_index<0) as negative_port_congestion_index,
+-- count(*) filter(where inventory_days<0) as negative_inventory_days,
+-- count(*) filter(where supplier_reliability<0) as negative_supplier_reliability,
+-- count(*) filter(where alternative_supplier_count<0) as negative_alternative_supplier_count,
+-- count(*) filter(where transit_time_days<0) as negative_transit_time_days,
+-- count(*) filter(where delay_probability<0) as negative_delay_probability,
+-- count(*) filter(where current_delay_days<0) as negative_current_delay_days,
+-- count(*) filter(where freight_cost_usd<0) as negative_freight_cost_usd,
+-- count(*) filter(where revenue_impact_usd<0) as negative_revenue_impact_usd
+-- from shipment_raw;

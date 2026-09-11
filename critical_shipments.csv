@@ -1,0 +1,12 @@
+shipment_id,supplier_id,country,product_type,route_risk_score,political_risk_index,port_congestion_index,delay_probability,current_delay_days,inventory_days
+SHP0024,SUP021,Iraq,LNG,7.10,3.91,8.13,0.53,9,5
+SHP0035,SUP015,Saudi Arabia,LNG,7.61,6.40,5.93,0.63,22,9
+SHP0200,SUP024,India,Electronics,7.08,2.66,8.76,0.53,20,8
+SHP0243,SUP016,Germany,LNG,7.63,7.79,8.26,0.70,32,8
+SHP0261,SUP040,Qatar,LNG,9.54,9.73,4.92,0.66,16,6
+SHP0308,SUP035,China,Electronics,9.91,1.65,9.52,0.73,29,9
+SHP0438,SUP033,China,Crude Oil,7.47,7.34,4.02,0.54,8,10
+SHP0463,SUP026,Germany,LNG,8.44,5.38,4.08,0.50,13,8
+SHP0490,SUP028,Iraq,Petrochemicals,6.77,6.61,2.46,0.50,16,6
+SHP0556,SUP026,Germany,LNG,6.03,7.25,8.32,0.67,5,10
+SHP0685,SUP045,Oman,LNG,7.04,4.62,7.05,0.67,22,6

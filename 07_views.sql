@@ -35,13 +35,15 @@ join inventory i on i.shipment_id=ship.shipment_id
 
 select * from vw_shipment_risk
 
+drop view if exists vw_critical_shipments;
+
 create view vw_critical_shipments as
 select *
 from vw_shipment_risk
-where route_risk_score>=7
-and delay_probability>=0.7
-and current_delay_days>=5
-and inventory_days<=7;
+where route_risk_score>=6
+and delay_probability>=0.5
+and current_delay_days>=3
+and inventory_days<=10;
 
 
 
